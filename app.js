@@ -1,3 +1,4 @@
+'use strict';
 
 const months = [
 "January",
@@ -31,15 +32,15 @@ const giveaway = document.querySelector(".giveaway");
 const deadline = document.querySelector(".deadline");
 const items = document.querySelectorAll(".deadline-format h4");
 
-let tempDate = new Date();
-let tempYear = tempDate.getFullYear();
-let tempMonth = tempDate.getMonth();
-let tempDay = tempDate.getDay();
+let today = new Date();
+let tempYear = today.getFullYear();
+let tempMonth = today.getMonth();
+let tempDay = today.getDate();
 
 // specific date
 //let futureDate = new Date(2030,6,16,12,30,0);
 
-const futureDate = new Date(tempYear, tempMonth, tempDay + 10, 11, 30, 0);
+const futureDate = new Date(tempYear, tempMonth, tempDay + 10, 12, 30, 0);
 
 const year = futureDate.getFullYear();
 const hours = futureDate.getHours();
@@ -67,6 +68,7 @@ giveaway.textContent = `giveaway ends on ${weekday}, ${date} ${month} ${year}, $
 const futureTime = futureDate.getTime();
 
 
+//Identify current time
 function getRemainingTime() {
 const today = new Date().getTime();
 const timeDifference = futureTime - today;
@@ -94,13 +96,13 @@ function format(item) {
 items.forEach(function (item, index){
     item.innerHTML = values[index];
 });
-
-if(timeDifference < 0) {
-    clearInterval(countdown);
-    deadline.innerHTML = `<h4 class="expired">sorry, this giveaway had expired</h4>`;
-}
-
 let countdown = setInterval(getRemainingTime, 1000);
+
+if(timeDifference <= 0) {
+    clearInterval(countdown);
 }
+
+}
+//Identify current time
 
 getRemainingTime();
