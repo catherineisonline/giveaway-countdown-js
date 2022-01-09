@@ -77,6 +77,7 @@ h1 {
   font-size: 1rem;
   text-transform: uppercase;
   background-color: #aa3333;
+  color: black;
 }
 
 .claim-button:hover {
