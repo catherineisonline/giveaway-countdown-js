@@ -1,3 +1,5 @@
+<img src="https://github.com/catherineisonline/giveaway-countdown-js/blob/main/project-preview.png?raw=true">
+
 
 # Giveaway Countdown
 
